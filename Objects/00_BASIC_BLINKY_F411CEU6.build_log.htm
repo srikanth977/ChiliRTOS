@@ -29,54 +29,7 @@ Project File Date:  03/15/2024
 Build target 'ChiliRTOS'
 Note: source file '.\osKernel.s' - object file renamed from '.\Objects\osKernel.o' to '.\Objects\oskernel_1.o'.
 Note: source file '.\osKernel.s' - object file renamed from '.\Objects\osKernel.o' to '.\Objects\oskernel_1.o'.
-main.c(10): warning: In file included from...
-./osKernel.h(23): warning: no newline at end of file [-Wnewline-eof]
- #endif
-       ^
-main.c(13): warning: no previous extern declaration for non-static variable 'Taskcount0' [-Wmissing-variable-declarations]
-uint32_t volatile Taskcount0=0;
-                  ^
-main.c(13): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint32_t volatile Taskcount0=0;
-^
-main.c(14): warning: no previous extern declaration for non-static variable 'Taskcount1' [-Wmissing-variable-declarations]
-uint32_t volatile Taskcount1=0;
-                  ^
-main.c(14): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint32_t volatile Taskcount1=0;
-^
-main.c(15): warning: no previous extern declaration for non-static variable 'Taskcount2' [-Wmissing-variable-declarations]
-uint32_t volatile Taskcount2=0;
-                  ^
-main.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint32_t volatile Taskcount2=0;
-^
-main.c(29): warning: function 'Task0' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-{
-^
-main.c(44): warning: function 'Task1' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-{
-^
-main.c(58): warning: function 'Task2' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-{
-^
-main.c(165): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        DELL_YELLOW_GPIO_Port->ODR &= ~DELL_YELLOW_Pin;
-                                   ~~ ^~~~~~~~~~~~~~~~
-main.c(175): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        MY_LED_GPIO_Port->ODR &=~MY_LED_Pin;
-                              ~~^~~~~~~~~~~
-main.c(196): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        DELL_SMALLGREEN_GPIO_Port->ODR &=~DELL_SMALLGREEN_Pin;
-                                       ~~^~~~~~~~~~~~~~~~~~~~
-main.c(216): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        DELL_HDD_GPIO_Port->ODR &= ~DELL_HDD_Pin;
-                                ~~ ^~~~~~~~~~~~~
-11 warnings generated.
-compiling main.c...
-linking...
-Program Size: Code=1808 RO-data=456 RW-data=4 ZI-data=2872  
-".\Objects\00_BASIC_BLINKY_F411CEU6.axf" - 0 Error(s), 11 Warning(s).
+".\Objects\00_BASIC_BLINKY_F411CEU6.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -107,7 +60,7 @@ Package Vendor: Keil
       Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f411xe.s
       Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

@@ -18,6 +18,6 @@
 														
 void osKernelStackInit(uint32_t ThreadNumber);		
 
-
+void osThreadYield(void);
 											
  #endif

@@ -82,3 +82,15 @@ void osKernelStackInit(uint32_t ThreadNumber)
 	//Now storing Value of XPSR as thread mode in the stackpointer frame
 	TCB_STACK[ThreadNumber][STACK_SIZE-1] = 0x01000000;
 }
+
+/* VER2.0 ---*/
+//Till now we gave 1000 quanta size to each thread, but it might be possible that some threads might be completed in less time.
+//So we can give the remaining time to trigger other threads.
+//This can be done only by context switching.
+//to do this context switch before quanta 1000 is to raise the systick interrupt again.
+//One method is to set the PEND bit in ICSR register of systick
+//this will set the PENDING bit to ON for systick and trigger systick interrrupt and hence context switch will happen.
+void osThreadYield()
+{
+ SCB->ICSR |= (1U<<SCB_ICSR_PENDSTSET_Pos);
+}

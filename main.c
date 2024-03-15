@@ -34,6 +34,7 @@ void Task0(void)
 		DELL_YELLOW_ON();
 		DELL_SMALLGREEN_OFF();
 		DELL_HDD_OFF();
+		osThreadYield();
 		
 	}
 	
