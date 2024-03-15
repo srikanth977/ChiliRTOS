@@ -55,6 +55,9 @@ void DELL_YELLOW_ON(void);
 void DELL_HDD_OFF(void);
 void DELL_HDD_ON(void);
 
+void Task0(void);
+void Task1(void);
+void Task2(void);
 
 #ifdef __cplusplus
 }

@@ -1,3 +1,11 @@
+v01:
+In this version of ChiliRTOS, we are creating a simple Round Robin Scheduler
+Features of this scheduler is:
+* Each task is assigned with a time slice of the duration "QUANTA"
+* Task will run till QUANTA and then the next task will be taken up for the same QUANTA duration and so on
+* Even if the tasks are finished early, next task is not taken up (means, thread is not yielded)
+============================================================================================================
+
 This is a basic blinky that runs using simple delays of for loops
 
 * Clock configuration is done using CMSIS library

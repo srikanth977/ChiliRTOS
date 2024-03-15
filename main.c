@@ -7,34 +7,86 @@ VERSION HISTORY
 */
 
 #include "main.h"
+#include "osKernel.h"
+#define QUANTA	1000
 
+uint32_t volatile Taskcount0=0;
+uint32_t volatile Taskcount1=0;
+uint32_t volatile Taskcount2=0;
 
 void ClockConfiguration(void);
 void GPIO_Init(void);
-void DelayS(uint32_t milliseconds);
-uint32_t getTick(void);
-void main_DELL_HDD(void);
-void main_DELL_SMALLGREEN(void);
-uint32_t volatile run;
+
+//Not used for version v1
+//void DelayS(uint32_t milliseconds);
+//uint32_t getTick(void);
+//void main_DELL_HDD(void);
+//void main_DELL_SMALLGREEN(void);
+//uint32_t volatile run;
+
+
+void Task0(void)
+{
+	
+	while(1)
+	{
+		Taskcount0++;
+		DELL_YELLOW_ON();
+		DELL_SMALLGREEN_OFF();
+		DELL_HDD_OFF();
+		
+	}
+	
+}
+
+
+void Task1(void)
+{
+	
+	while(1)
+	{
+		Taskcount1++;
+		DELL_SMALLGREEN_ON();
+		DELL_YELLOW_OFF();
+		DELL_HDD_OFF();
+	}
+	
+}
+
+
+void Task2(void)
+{
+	
+	
+	while(1)
+	{
+		Taskcount2++;
+		DELL_HDD_ON();
+		DELL_YELLOW_OFF();
+		DELL_SMALLGREEN_OFF();
+	}
+	
+}
+
 int main(void)
 {
 	__disable_irq();
   ClockConfiguration();
   GPIO_Init();
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  __enable_irq();
-  run = 0u;
-  if (run)
-  {
-	  main_DELL_SMALLGREEN();
-  }
-  else
-  {
-	  main_DELL_HDD();
-  }
+	osKernelInit();
+	osKernelAddThreads(&Task0,&Task1,&Task2);
+	osKernelLaunch(QUANTA);
+//Not used for version v1
+//  __enable_irq();
+//  run = 0u;
+//  if (run)
+//  {
+//	  main_DELL_SMALLGREEN();
+//  }
+//  else
+//  {
+//	  main_DELL_HDD();
+//  }
 	  while (1)
   {
   }
@@ -123,16 +175,17 @@ void MY_LED_OFF(void)
 	MY_LED_GPIO_Port->ODR &=~MY_LED_Pin;
 }
 
-void main_DELL_SMALLGREEN(void)
-{
-	while(1)
-	{
-		DELL_SMALLGREEN_ON();
-		DelayS(1000U);
-		DELL_SMALLGREEN_OFF();
-		DelayS(1000U);
-	}
-}
+//Not used for version v1
+//void main_DELL_SMALLGREEN(void)
+//{
+//	while(1)
+//	{
+//		DELL_SMALLGREEN_ON();
+//		DelayS(1000U);
+//		DELL_SMALLGREEN_OFF();
+//		DelayS(1000U);
+//	}
+//}
 void DELL_SMALLGREEN_ON()
 {
 	DELL_SMALLGREEN_GPIO_Port->ODR |=DELL_SMALLGREEN_Pin;
@@ -143,16 +196,17 @@ void DELL_SMALLGREEN_OFF()
 	DELL_SMALLGREEN_GPIO_Port->ODR &=~DELL_SMALLGREEN_Pin;
 }
 
-void main_DELL_HDD()
-{
-	while(1)
-	{
-		DELL_HDD_ON();
-		DelayS(1000U);
-		DELL_HDD_OFF();
-		DelayS(1000U);
-	}
-}
+//Not used for version v1
+//void main_DELL_HDD()
+//{
+//	while(1)
+//	{
+//		DELL_HDD_ON();
+//		DelayS(1000U);
+//		DELL_HDD_OFF();
+//		DelayS(1000U);
+//	}
+//}
 void DELL_HDD_ON()
 {
 	DELL_HDD_GPIO_Port->ODR |=DELL_HDD_Pin;
@@ -162,17 +216,18 @@ void DELL_HDD_OFF()
 	DELL_HDD_GPIO_Port->ODR &= ~DELL_HDD_Pin;
 }
 
+//Not used for version v1
+//uint32_t getTick()
+//{
+//	__disable_irq();
+//	_tick=tick;
+//	__enable_irq();
+//	return _tick;
+//}
 
-uint32_t getTick()
-{
-	__disable_irq();
-	_tick=tick;
-	__enable_irq();
-	return _tick;
-}
-
-void DelayS(uint32_t milliseconds)
-{
-	uint32_t tempnum = getTick();
-	while((getTick()-tempnum)<milliseconds){}
-}
+//Not used for version v1
+//void DelayS(uint32_t milliseconds)
+//{
+//	uint32_t tempnum = getTick();
+//	while((getTick()-tempnum)<milliseconds){}
+//}

@@ -404,6 +404,31 @@
               <FileType>1</FileType>
               <FilePath>.\Interrupts.c</FilePath>
             </File>
+            <File>
+              <FileName>README.md</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\README.md</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>osKernel</GroupName>
+          <Files>
+            <File>
+              <FileName>osKernel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\osKernel.c</FilePath>
+            </File>
+            <File>
+              <FileName>osKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\osKernel.h</FilePath>
+            </File>
+            <File>
+              <FileName>osKernel.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\osKernel.s</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
