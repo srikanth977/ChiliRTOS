@@ -1,5 +1,6 @@
-./objects/main.o: main.c RTE\_ChiliRTOS\Pre_Include_Global.h main.h \
-  STM32F4_RTOS_BSP.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+./objects/stm32f4_rtos_bsp.o: STM32F4_RTOS_BSP.c \
+  RTE\_ChiliRTOS\Pre_Include_Global.h STM32F4_RTOS_BSP.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   C:\Users\Chili\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   RTE\Device\STM32F411CEUx\stm32f4xx_hal_conf.h \
   RTE\_ChiliRTOS\RTE_Components.h \

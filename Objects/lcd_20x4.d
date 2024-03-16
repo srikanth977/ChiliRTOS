@@ -1,5 +1,6 @@
-./objects/main.o: main.c RTE\_ChiliRTOS\Pre_Include_Global.h main.h \
-  STM32F4_RTOS_BSP.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+./objects/lcd_20x4.o: LCD_20x4.c RTE\_ChiliRTOS\Pre_Include_Global.h \
+  LCD_20x4.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  STM32F4_RTOS_BSP.h \
   C:\Users\Chili\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal.h \
   RTE\Device\STM32F411CEUx\stm32f4xx_hal_conf.h \
   RTE\_ChiliRTOS\RTE_Components.h \
@@ -32,5 +33,5 @@
   C:\Users\Chili\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_pwr_ex.h \
   C:\Users\Chili\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim.h \
   C:\Users\Chili\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_tim_ex.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h LCD_20x4.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h

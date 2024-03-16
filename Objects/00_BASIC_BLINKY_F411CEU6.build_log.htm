@@ -21,14 +21,12 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
 Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
-D:\MTECH\OWN RTOS\01 KEIL\WORKING GOOD\GitWork\00_BASIC_BLINKY_F411CEU6.uvprojx
-Project File Date:  03/15/2024
+D:\MTECH\OWN RTOS\01 KEIL\WORKING GOOD\GitWork\ChiliRTOS.uvprojx
+Project File Date:  03/16/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'ChiliRTOS'
-Note: source file '.\osKernel.s' - object file renamed from '.\Objects\osKernel.o' to '.\Objects\oskernel_1.o'.
-Note: source file '.\osKernel.s' - object file renamed from '.\Objects\osKernel.o' to '.\Objects\oskernel_1.o'.
 ".\Objects\00_BASIC_BLINKY_F411CEU6.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -43,16 +41,71 @@ Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
                 Keil.STM32F4xx_DFP.2.17.1
                 STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: STM32Cube Framework Version: 1.0.0
+   * Component: Classic Version: 1.8.1
+   * Component: ADC Version: 1.8.1
+   * Component: Common Version: 1.8.1
+   * Component: Cortex Version: 1.8.1
+   * Component: DMA Version: 1.8.1
+   * Component: GPIO Version: 1.8.1
+   * Component: PWR Version: 1.8.1
+   * Component: RCC Version: 1.8.1
+   * Component: TIM Version: 1.8.1
    * Component: Startup Version: 2.6.3
 
 <h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F411CEUx
   ./RTE/_ChiliRTOS
   C:/Users/Chili/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include
   C:/Users/Chili/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+  C:/Users/Chili/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/STM32F4xx_HAL_Driver/Inc
 
 <h2>Collection of Component Files used:</h2>
 
+   * Component: ::Device:STM32Cube Framework:1.0.0 (API)
+
    * Component: ARM::CMSIS:CORE:6.0.0
+
+   * Component: Keil::Device:STM32Cube Framework:Classic:1.8.1
+      Source file:   MDK/Templates/Src/stm32f4xx_it.c
+      Include file:  MDK/Templates/Inc/main.h
+      Include file:  MDK/Templates_LL/Inc/main.h
+      Source file:   MDK/Templates/Src/stm32f4xx_hal_msp.c
+      Source file:   MDK/Templates/Src/main.c
+      Source file:   MDK/Templates_LL/Src/main.c
+      Include file:  MDK/Templates/Inc/stm32f4xx_hal_conf.h
+      Include file:  MDK/Templates/Inc/stm32f4xx_it.h
+      Include file:  CMSIS/Driver/Config/RTE_Device.h
+
+   * Component: Keil::Device:STM32Cube HAL:ADC:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c
+
+   * Component: Keil::Device:STM32Cube HAL:Common:1.8.1
+      Include file:  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
+
+   * Component: Keil::Device:STM32Cube HAL:Cortex:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
+
+   * Component: Keil::Device:STM32Cube HAL:DMA:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
+
+   * Component: Keil::Device:STM32Cube HAL:GPIO:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
+
+   * Component: Keil::Device:STM32Cube HAL:PWR:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
+
+   * Component: Keil::Device:STM32Cube HAL:RCC:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
+
+   * Component: Keil::Device:STM32Cube HAL:TIM:1.8.1
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
+      Source file:   Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
 
    * Component: Keil::Device:Startup:2.6.3
       Source file:   MDK/Device/Source/ARM/STM32F411xx_OPT.s

@@ -1,3 +1,45 @@
+# v03:
+## This is a pre-release of the actual RTOS
+
+Now that we have understood context switching (using ```SysTick Timer```), we shall now try to move towards more practical example.
+So consider a scenario where a reading from Potentiometer is displayed on the LCD screen. and our existing 3 LEDs shall also blink as per the QUANTA time. The 3 LEDs are now called as Probe LEDs.
+
+Since our main intention is to study the RTOS and integration of peripherals around it, we are not going to do bare-metal programming here. So I have used HAL library provided by ST microelectronics in KEIL IDE.
+
+Below are the peripheral details and their pin assignment
+### Board : STM32F411CEUTx
+
+### ADC :
+Using ADC, Value is displayed on LCD.
+	
+| ADC CHANNEL | BOARD PIN|
+|-------------|----------|
+|ADC1_5|PA5|
+
+### LCD 20X4 DISPLAY
+
+| LCD PIN | BOARD PIN |
+|---------|-----------|
+|DB0|PB0|
+|DB1|PB1|
+|DB2|PB2|
+|DB3|PB3|
+|DB4|PB4|
+|DB5|PB5|
+|DB6|PB6|
+|DB7|PB7|
+|RS|PA8|
+|RW|PA9|
+|EN|PA10|
+
+### PROBE LEDs
+Probe LEDs are used for animation as well as Oscilloscope verification of our task switching.
+|Probe Name| LED PIN DEFINITION|PIN|
+|---|---|---|
+|Probe 0|P0_DELL_SMALLGREEN_Pin | PA0|
+|Probe 1|P1_DELL_YELLOW_Pin |PC13|
+|Probe 2|P2_DELL_HDD_Pin |PC14|
+|Probe 3|P3_MY_LED_Pin |PC15|
 # v02:
 Till now we gave 1000 quanta size to each thread, but it might be possible that some threads might be completed in less time.
 So we can give the remaining time to trigger other threads.
