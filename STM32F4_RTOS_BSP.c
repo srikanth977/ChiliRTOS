@@ -190,9 +190,9 @@ void MX_Probe_IO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(P3_MY_LED_GPIO_Port, P3_MY_LED_Pin, GPIO_PIN_SET);
-
+	
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, P0_DELL_SMALLGREEN_Pin|P1_DELL_YELLOW_Pin|P2_DELL_HDD_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, P0_DELL_SMALLGREEN_Pin|P1_DELL_YELLOW_Pin|P2_DELL_HDD_Pin|P4_LED_Pin, GPIO_PIN_RESET);
 
 
   /*Configure GPIO pin : P3_MY_LED_Pin */
@@ -202,9 +202,8 @@ void MX_Probe_IO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(P3_MY_LED_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : P0_DELL_SMALLGREEN_Pin P1_DELL_YELLOW_Pin P2_DELL_HDD_Pin LCD_RS_Pin
-                           LCD_RW_Pin LCD_EN_Pin */
-  GPIO_InitStruct.Pin = P0_DELL_SMALLGREEN_Pin|P1_DELL_YELLOW_Pin|P2_DELL_HDD_Pin;
+  /*Configure GPIO pins : P0_DELL_SMALLGREEN_Pin P1_DELL_YELLOW_Pin P2_DELL_HDD_Pin P4_LED_Pin */
+  GPIO_InitStruct.Pin = P0_DELL_SMALLGREEN_Pin|P1_DELL_YELLOW_Pin|P2_DELL_HDD_Pin|P4_LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;

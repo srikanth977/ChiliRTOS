@@ -1,20 +1,26 @@
 ; VER01
 	AREA |.text|, CODE, READONLY, ALIGN=2
 	THUMB
+	PRESERVE8
 	EXTERN currentPt
 	EXPORT SysTick_Handler
 	EXPORT osSchedulerLaunch
-		
-		
+	IMPORT	osScheduerRoundRobin			;osSchedulerRoundRobinSinglePeriodicTask if to run only 1 periodic task
+	;IMPORT  osSchedulerRoundRobinSinglePeriodicTask
+	
 SysTick_Handler          ;save r0,r1,r2,r3,r12,lr,pc,psr      
     CPSID   I                  
     PUSH    {R4-R11}        ;save r4,r5,r6,r7,r8,r9,r10,r11   
     LDR     R0, =currentPt  ; r0 points to currentPt       
     LDR     R1, [R0]        ; r1= currentPt   
     STR     SP, [R1]           
-    LDR     R1, [R1,#4]     ; r1 =currentPt->next   
-    STR     R1, [R0]        ;currentPt =r1   
-    LDR     SP, [R1]        ;SP= currentPt->stackPt   
+    ;LDR     R1, [R1,#4]     ; r1 =currentPt->next 		-->CHANGED IN version v3.2  
+    ;STR     R1, [R0]        ;currentPt =r1   			-->CHANGED IN version v3.2
+    PUSH 	{R0,LR}
+	BL		osScheduerRoundRobin			;osSchedulerRoundRobinSinglePeriodicTask if to run only 1 periodic task
+	;BL		osSchedulerRoundRobinSinglePeriodicTask
+	POP		{LR,R0}
+	LDR     SP, [R1]        ;SP= currentPt->stackPt   
     POP     {R4-R11}           
     CPSIE   I                  
     BX      LR 

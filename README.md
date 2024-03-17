@@ -1,3 +1,17 @@
+# v3.2
+Here in second method of thread scheduling, we are going to modify the ```SysTick_Handler```. Till Now we moved to another thread using this ```SysTick_Handler```, but now we shall do it using C function which will give us more control on the context switching portion.
+
+Capability to switch to next thread is implemented in C function instead of Assembly.
+Implementation is again considered for following conditions
+
+## Only 1 periodic thread to be executed
+For this, the function ```osSchedulerRoundRobinSinglePeriodicTask``` need to be uncommented in osKernel.c file and also in ```SysTick_Handler``` present in osKernel.s file.
+
+## Multiple periodic threads to be executed
+Function ``` osSchedulerRoundRobin``` is already uncommented and this is the default function enabled for execution
+
+---
+
 # v3.1
 Here in this version and lesson, we are going to talk abount periodic schedulers.
 Now there might be many ways to achieve this.

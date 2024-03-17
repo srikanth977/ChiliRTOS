@@ -25,7 +25,8 @@ extern TIM_HandleTypeDef htim5;
 #define P1_DELL_YELLOW_GPIO_Port GPIOA
 #define P2_DELL_HDD_Pin GPIO_PIN_2
 #define P2_DELL_HDD_GPIO_Port GPIOA
-
+#define P4_LED_Pin GPIO_PIN_3
+#define P4_LED_GPIO_Port GPIOA
 
 /* LED peripheral GPIO definitions */
 #define LCD_D0_Pin GPIO_PIN_0

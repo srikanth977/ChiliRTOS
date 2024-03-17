@@ -4,6 +4,9 @@
 #include <stdint.h>
 #include "STM32F4_RTOS_BSP.h"
  
+#define QUANTA	100
+#define PERIOD		10		// this will give overall time in ms as QUANTA (msec) * PERIOD
+
  //extern void osSchedulerLaunch();	
  //We need a function to Launch the threads
  void osKernelLaunch(uint32_t quanta);
@@ -19,5 +22,7 @@
 void osKernelStackInit(uint32_t ThreadNumber);		
 
 void osThreadYield(void);
-											
+														
+void osSchedulerRoundRobinSinglePeriodicTask(void);
+	void osSchedulerRoundRobin(void);										
  #endif

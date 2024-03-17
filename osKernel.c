@@ -94,3 +94,50 @@ void osThreadYield()
 {
  SCB->ICSR |= (1U<<SCB_ICSR_PENDSTSET_Pos);
 }
+
+
+uint32_t periodic_tick;
+
+void Periodic_Task3(void);
+void Periodic_Task4(void);
+//void osSchedulerRoundRobinSinglePeriodicTask(void)
+//{
+//	//Below algorithm is OK IF AND ONLY IF 1 periodic task is present.
+//	//But that wont be the case in real world.
+//	//So for multiple Periodic task, we need to define HYPERPERIOD and accordingly we need to schedule tasks.
+//	if (++periodic_tick==PERIOD)
+//	{
+//		(*Periodic_Task3)();
+//		periodic_tick=0;
+//	}
+//	currentPt=currentPt->nextPt;
+//}
+
+/*
+Let us say we have two periodic tasks running at 1000ms and 500ms
+So to Calculate HyperPeriod H = LCM(500,1000) = 1000
+For study purpose, we shall not write algorithm to calculate HyperPeriod.
+*/
+void osScheduerRoundRobin()
+{
+	//OUR QUANTA SIZE IS 100, means the variable periodic_tick will be incremented only after 100 msec.
+	//So at every 100msec, variable periodic_tick will be incremented
+	++periodic_tick;
+	periodic_tick %=10;	//mod operation
+	if(periodic_tick%5==0)
+	{
+		(*Periodic_Task4)();
+	}
+	if(periodic_tick%10==0)
+	{
+		(*Periodic_Task3)();
+	}
+	
+	if (periodic_tick>10)
+	{
+		periodic_tick=0;
+	}
+	currentPt=currentPt->nextPt;
+}
+
+

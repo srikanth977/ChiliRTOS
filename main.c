@@ -5,21 +5,10 @@
 #include <stdint.h>
 #include "STM32F4_RTOS_BSP.h"
 
-#define QUANTA	1000
 
 uint32_t volatile Taskcount0=0;
 uint32_t volatile Taskcount1=0;
 uint32_t volatile Taskcount2=0;
-
-
-#define P3_MY_LED_Pin GPIO_PIN_13
-#define P3_MY_LED_GPIO_Port GPIOC
-#define P0_DELL_SMALLGREEN_Pin GPIO_PIN_0
-#define P0_DELL_SMALLGREEN_GPIO_Port GPIOA
-#define P1_DELL_YELLOW_Pin GPIO_PIN_1
-#define P1_DELL_YELLOW_GPIO_Port GPIOA
-#define P2_DELL_HDD_Pin GPIO_PIN_2
-#define P2_DELL_HDD_GPIO_Port GPIOA
 
 
 void ClockConfiguration(void);
@@ -27,8 +16,8 @@ void GPIO_Init(void);
 void P0_DELL_SMALLGREEN_OFF(void);
 void P0_DELL_SMALLGREEN_ON(void);
 
-void MY_LED_OFF(void);
-void MY_LED_ON(void);
+void P3_MY_LED_OFF(void);
+void P3_MY_LED_ON(void);
 
 void P1_DELL_YELLOW_OFF(void);
 void P1_DELL_YELLOW_ON(void);
@@ -146,17 +135,29 @@ void Task2(void)
 	
 }
 
-/* Timer interrupt equivalent to Task3 */
-void TIM4_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM4_IRQn 0 */
-	//++count4;
-	HAL_GPIO_TogglePin(P3_MY_LED_GPIO_Port,P3_MY_LED_Pin);
-  /* USER CODE END TIM4_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim4);
-  /* USER CODE BEGIN TIM4_IRQn 1 */
+///* Timer interrupt equivalent to Task3 */
+//void TIM4_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN TIM4_IRQn 0 */
+//	//++count4;
+//	HAL_GPIO_TogglePin(P3_MY_LED_GPIO_Port,P3_MY_LED_Pin);
+//  /* USER CODE END TIM4_IRQn 0 */
+//  HAL_TIM_IRQHandler(&htim4);
+//  /* USER CODE BEGIN TIM4_IRQn 1 */
 
-  /* USER CODE END TIM4_IRQn 1 */
+//  /* USER CODE END TIM4_IRQn 1 */
+//}
+
+void Periodic_Task3()
+{
+	/* These threads will not execute indefinitely, they execute once */
+	HAL_GPIO_TogglePin(P3_MY_LED_GPIO_Port,P3_MY_LED_Pin);
+}
+
+void Periodic_Task4()
+{
+	/* These threads will not execute indefinitely, they execute once */
+	HAL_GPIO_TogglePin(P4_LED_GPIO_Port,P4_LED_Pin);
 }
 
 void P1_DELL_YELLOW_ON(void)
@@ -208,8 +209,8 @@ int main(void)
 	//SystemClock_Config();
 	ClockConfiguration();
 	MX_Probe_IO_Init();
-	MX_TIM4_Init();
-	HAL_TIM_Base_Start_IT(&htim4);
+	//MX_TIM4_Init();
+	//HAL_TIM_Base_Start_IT(&htim4);
 	osKernelInit();
 	osKernelAddThreads(&Task0,&Task1,&Task2);
 	osKernelLaunch(QUANTA);
