@@ -382,7 +382,7 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Basic_Blinky</GroupName>
+          <GroupName>user</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
@@ -407,18 +407,13 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>README</GroupName>
+          <GroupName>STM32F411CEUx_BSP</GroupName>
           <Files>
             <File>
               <FileName>README.md</FileName>
               <FileType>5</FileType>
               <FilePath>.\README.md</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>STM32F411CEUx_BSP</GroupName>
-          <Files>
             <File>
               <FileName>Abstract.txt</FileName>
               <FileType>5</FileType>
@@ -448,6 +443,26 @@
               <FileName>LCD_20x4.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\LCD_20x4.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>osKernel</GroupName>
+          <Files>
+            <File>
+              <FileName>osKernel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\osKernel.c</FilePath>
+            </File>
+            <File>
+              <FileName>osKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\osKernel.h</FilePath>
+            </File>
+            <File>
+              <FileName>osKernel.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\osKernel.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -600,5 +615,14 @@
       </file>
     </files>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>ChiliRTOS</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

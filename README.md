@@ -1,4 +1,18 @@
-# v03:
+# v3.1
+Here in this version and lesson, we are going to talk abount periodic schedulers.
+Now there might be many ways to achieve this.
+
+First type of periodic scheduler is described in this version.
+Recall from version v2 we have a basic round robin scheduler which consists of ```Task0```, ```Task1``` and ```Task2``` that are called every time by the ```SysTick_Handler```.
+
+Now let us say we need another task which is periodic (say should execute every 100milli seconds). Method explained in  this version is by creating a Timer (```TIM4``` is used in the example) of period 100 milliseconds and executing our task in this interrupt.
+
+Again, HAL Library is used as we are not learning the bare metal programming. Only exception to the application of HAL library is the Clock configuration. Its observed that by using HAL library to configure clock, Systick timer was getting started by HAL, but in our application ```osKernelLaunch``` function.
+
+We will not use this method of periodic scheduling. So lets see for version v3.2
+
+---
+# v3:
 ## This is a pre-release of the actual RTOS
 
 Now that we have understood context switching (using ```SysTick Timer```), we shall now try to move towards more practical example.
@@ -40,7 +54,9 @@ Probe LEDs are used for animation as well as Oscilloscope verification of our ta
 |Probe 1|P1_DELL_YELLOW_Pin |PC13|
 |Probe 2|P2_DELL_HDD_Pin |PC14|
 |Probe 3|P3_MY_LED_Pin |PC15|
-# v02:
+
+---
+# v2:
 Till now we gave 1000 quanta size to each thread, but it might be possible that some threads might be completed in less time.
 So we can give the remaining time to trigger other threads.
 This can be done only by context switching.
@@ -85,3 +101,7 @@ List of LEDs configured in the code are
 |DELL_HDD_LED|PA2|
 |DELL_YELLOW_LED|PA1|
 |DELL_SMALLGREEN_LED|PA0|
+
+---
+---
+---

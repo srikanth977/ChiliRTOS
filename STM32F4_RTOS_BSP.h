@@ -8,7 +8,6 @@
 #include "LCD_20x4.h"
 #include <stdio.h>
 
-
 /* Peripheral declarations for HAL */
 extern ADC_HandleTypeDef hadc1;
 extern TIM_HandleTypeDef htim2;
@@ -26,6 +25,9 @@ extern TIM_HandleTypeDef htim5;
 #define P1_DELL_YELLOW_GPIO_Port GPIOA
 #define P2_DELL_HDD_Pin GPIO_PIN_2
 #define P2_DELL_HDD_GPIO_Port GPIOA
+
+
+/* LED peripheral GPIO definitions */
 #define LCD_D0_Pin GPIO_PIN_0
 #define LCD_D0_GPIO_Port GPIOB
 #define LCD_D1_Pin GPIO_PIN_1

@@ -27,7 +27,7 @@ uint32_t TCB_STACK[NUM_OF_THREADS][STACK_SIZE];
 
 void osKernelInit()
 {
- __enable_irq();
+ __disable_irq();
 }
 
 void osKernelLaunch(uint32_t quanta)

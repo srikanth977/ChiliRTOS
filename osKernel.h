@@ -2,8 +2,9 @@
 #ifndef _OS_KERNEL_H
 #define _OS_KERNEL_H
 #include <stdint.h>
-#include "stm32f401xe.h"
- 
+#include "STM32F4_RTOS_BSP.h"
+
+
  //extern void osSchedulerLaunch();	
  //We need a function to Launch the threads
  void osKernelLaunch(uint32_t quanta);

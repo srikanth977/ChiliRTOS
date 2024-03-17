@@ -1,4 +1,5 @@
 #include "Interrupts.h"
+#include "STM32F4_RTOS_BSP.h"
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
@@ -130,16 +131,16 @@ void PendSV_Handler(void)
 /**
   * @brief This function handles System tick timer.
   */
-void SysTick_Handler(void)
-{
-  /* USER CODE BEGIN SysTick_IRQn 0 */
+//void SysTick_Handler(void)
+//{
+//  /* USER CODE BEGIN SysTick_IRQn 0 */
 
-  /* USER CODE END SysTick_IRQn 0 */
-  HAL_IncTick();
-  /* USER CODE BEGIN SysTick_IRQn 1 */
+//  /* USER CODE END SysTick_IRQn 0 */
+//  HAL_IncTick();
+//  /* USER CODE BEGIN SysTick_IRQn 1 */
 
-  /* USER CODE END SysTick_IRQn 1 */
-}
+//  /* USER CODE END SysTick_IRQn 1 */
+//}
 
 /******************************************************************************/
 /* STM32F4xx Peripheral Interrupt Handlers                                    */
@@ -181,17 +182,17 @@ void TIM3_IRQHandler(void)
 /**
   * @brief This function handles TIM4 global interrupt.
   */
-void TIM4_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM4_IRQn 0 */
-	//++count4;
-	HAL_GPIO_TogglePin(P2_DELL_HDD_GPIO_Port, P2_DELL_HDD_Pin);
-  /* USER CODE END TIM4_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim4);
-  /* USER CODE BEGIN TIM4_IRQn 1 */
+//void TIM4_IRQHandler(void)
+//{
+//  /* USER CODE BEGIN TIM4_IRQn 0 */
+//	//++count4;
+//	HAL_GPIO_TogglePin(P2_DELL_HDD_GPIO_Port, P2_DELL_HDD_Pin);
+//  /* USER CODE END TIM4_IRQn 0 */
+//  HAL_TIM_IRQHandler(&htim4);
+//  /* USER CODE BEGIN TIM4_IRQn 1 */
 
-  /* USER CODE END TIM4_IRQn 1 */
-}
+//  /* USER CODE END TIM4_IRQn 1 */
+//}
 
 /**
   * @brief This function handles TIM5 global interrupt.
