@@ -126,7 +126,7 @@ void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 9600;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 1000;	//100milliseconds
+  htim4.Init.Period = 1000;	//100MSEC
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   HAL_TIM_Base_Init(&htim4);
@@ -189,7 +189,7 @@ void MX_Probe_IO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(P3_MY_LED_GPIO_Port, P3_MY_LED_Pin, GPIO_PIN_SET );
+  HAL_GPIO_WritePin(P3_MY_LED_GPIO_Port, P3_MY_LED_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, P0_DELL_SMALLGREEN_Pin|P1_DELL_YELLOW_Pin|P2_DELL_HDD_Pin, GPIO_PIN_RESET);

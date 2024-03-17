@@ -1,7 +1,7 @@
 #ifndef __INTERRUPTS_H
 #define __INTERRUPTS_H
 
-
+#include "STM32F4_RTOS_BSP.h"
 
 void NMI_Handler(void);
 void HardFault_Handler(void);

@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>ChiliRTOS</TargetName>
+      <TargetName>ChiliRTOS_STM32F411CEU6</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>6180000::V6.18::ARMCLANG</pCCUsed>
@@ -183,7 +183,7 @@
             <hadIRAM>1</hadIRAM>
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
-            <RvdsVP>2</RvdsVP>
+            <RvdsVP>1</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
             <nBranchProt>0</nBranchProt>
@@ -314,7 +314,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -323,7 +323,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>2</wLevel>
+            <wLevel>3</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -382,33 +382,33 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>user</GroupName>
+          <GroupName>osKernel</GroupName>
+          <Files>
+            <File>
+              <FileName>osKernel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\osKernel.c</FilePath>
+            </File>
+            <File>
+              <FileName>osKernel.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\osKernel.s</FilePath>
+            </File>
+            <File>
+              <FileName>osKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\osKernel.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>User</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
-            <File>
-              <FileName>main.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\main.h</FilePath>
-            </File>
-            <File>
-              <FileName>Interrupts.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Interrupts.h</FilePath>
-            </File>
-            <File>
-              <FileName>Interrupts.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Interrupts.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>STM32F411CEUx_BSP</GroupName>
-          <Files>
             <File>
               <FileName>README.md</FileName>
               <FileType>5</FileType>
@@ -419,6 +419,11 @@
               <FileType>5</FileType>
               <FilePath>.\Abstract.txt</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>STM32F411CEUx_BSP</GroupName>
+          <Files>
             <File>
               <FileName>STM32F4_RTOS_BSP.c</FileName>
               <FileType>1</FileType>
@@ -432,37 +437,17 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>LCD_20x4</GroupName>
+          <GroupName>Interrupts</GroupName>
           <Files>
             <File>
-              <FileName>LCD_20x4.c</FileName>
+              <FileName>Interrupts.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\LCD_20x4.c</FilePath>
+              <FilePath>.\Interrupts.c</FilePath>
             </File>
             <File>
-              <FileName>LCD_20x4.h</FileName>
+              <FileName>Interrupts.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\LCD_20x4.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>osKernel</GroupName>
-          <Files>
-            <File>
-              <FileName>osKernel.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\osKernel.c</FilePath>
-            </File>
-            <File>
-              <FileName>osKernel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\osKernel.h</FilePath>
-            </File>
-            <File>
-              <FileName>osKernel.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\osKernel.s</FilePath>
+              <FilePath>.\Interrupts.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -477,26 +462,11 @@
   </Targets>
 
   <RTE>
-    <packages>
-      <filter>
-        <targetInfos/>
-      </filter>
-      <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0">
-        <targetInfos>
-          <targetInfo name="ChiliRTOS" versionMatchMode="fixed"/>
-        </targetInfos>
-      </package>
-      <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1">
-        <targetInfos>
-          <targetInfo name="ChiliRTOS" versionMatchMode="fixed"/>
-        </targetInfos>
-      </package>
-    </packages>
     <apis>
       <api Capiversion="1.0.0" Cclass="Device" Cgroup="STM32Cube Framework" exclusive="1">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </api>
     </apis>
@@ -504,67 +474,67 @@
       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="6.0.0" condition="ARMv6_7_8-M Device">
         <package name="CMSIS" schemaVersion="1.7.7" url="https://www.keil.com/pack/" vendor="ARM" version="6.0.0"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Capiversion="1.0.0" Cclass="Device" Cgroup="STM32Cube Framework" Csub="Classic" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 Framework Classic">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="ADC" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 HAL DMA">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="Common" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 HAL Common">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="Cortex" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 HAL">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="DMA" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 HAL">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="GPIO" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 HAL">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="PWR" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 HAL">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="RCC" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 HAL GPIO">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="TIM" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 HAL DMA">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="2.6.3" condition="STM32F4 CMSIS">
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </component>
     </components>
@@ -586,7 +556,7 @@
         <component Capiversion="1.0.0" Cclass="Device" Cgroup="STM32Cube Framework" Csub="Classic" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 Framework Classic"/>
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </file>
       <file attr="config" category="source" condition="STM32F411xE_ARMCC" name="Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f411xe.s" version="2.6.8">
@@ -594,7 +564,7 @@
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="2.6.3" condition="STM32F4 CMSIS"/>
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </file>
       <file attr="config" category="header" name="MDK\Templates\Inc\stm32f4xx_hal_conf.h" version="1.8.1">
@@ -602,7 +572,7 @@
         <component Capiversion="1.0.0" Cclass="Device" Cgroup="STM32Cube Framework" Csub="Classic" Cvendor="Keil" Cversion="1.8.1" condition="STM32F4 Framework Classic"/>
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </file>
       <file attr="config" category="source" name="Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c" version="2.6.8">
@@ -610,7 +580,7 @@
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="2.6.3" condition="STM32F4 CMSIS"/>
         <package name="STM32F4xx_DFP" schemaVersion="1.7.2" url="https://www.keil.com/pack/" vendor="Keil" version="2.17.1"/>
         <targetInfos>
-          <targetInfo name="ChiliRTOS"/>
+          <targetInfo name="ChiliRTOS_STM32F411CEU6"/>
         </targetInfos>
       </file>
     </files>
@@ -619,7 +589,7 @@
   <LayerInfo>
     <Layers>
       <Layer>
-        <LayName>ChiliRTOS</LayName>
+        <LayName>Basic_Blinky_F411CEU6_ROUNDR</LayName>
         <LayPrjMark>1</LayPrjMark>
       </Layer>
     </Layers>

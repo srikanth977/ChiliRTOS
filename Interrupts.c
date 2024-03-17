@@ -1,11 +1,6 @@
 #include "Interrupts.h"
 #include "STM32F4_RTOS_BSP.h"
 
-TIM_HandleTypeDef htim2;
-TIM_HandleTypeDef htim3;
-TIM_HandleTypeDef htim4;
-TIM_HandleTypeDef htim5;
-
 uint32_t count2=0;
 uint32_t count3=0;
 uint32_t count4=0;
