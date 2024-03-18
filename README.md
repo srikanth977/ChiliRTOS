@@ -1,3 +1,29 @@
+# v3.2.1
+## This is a minor update where all tasks are made periodic. This is usefull to understand HYPERPERIOD.
+
+### Theory:
+The list of tasks in our board are and their periods (periods are taken for )
+    
+|Task Name|Period in milliseconds|LED|
+|---------|----------------------|---|
+|```Task0```| 250|P0_DELL_SMALLGREEN|
+|```Task1```|500|P1_DELL_YELLOW|
+|```Task2```|500|P2_DELL_HDD|
+|```Periodic_Task3```|750|P3_MY_LED|
+|```Periodic_Task4```|1000|P4_LED|
+
+### Calculations
+Hyper period (H)=LCM(250,500,500,750,1000)
+                
+                H = 3000 milliseconds
+
+### Implementation
+We will set ```QUANTA``` to 1 millisecond, so ```SysTick_Handler``` will be executed every millisecond. Now during this time, our funtion ```osSchedulerRoundRobin``` will decide which task to be executed.
+
+LED animations from the tasks ```Task0,Task1,Task2``` are deleted. I still dont know if the task addition function is relevant or not. I did not modify it yet.
+
+---
+
 # v3.2
 Here in second method of thread scheduling, we are going to modify the ```SysTick_Handler```. Till Now we moved to another thread using this ```SysTick_Handler```, but now we shall do it using C function which will give us more control on the context switching portion.
 

@@ -95,13 +95,18 @@ void Task0(void)
 	while(1)
 	{
 		Taskcount0++;
-		P0_DELL_SMALLGREEN_ON();
-		P1_DELL_YELLOW_OFF();
-		P2_DELL_HDD_OFF();
+//		P0_DELL_SMALLGREEN_ON();
+//		P1_DELL_YELLOW_OFF();
+//		P2_DELL_HDD_OFF();
 		//osThreadYield();
 		
 	}
 	
+}
+
+void Periodic_Task0(void)
+{
+		HAL_GPIO_TogglePin(P0_DELL_SMALLGREEN_GPIO_Port,P0_DELL_SMALLGREEN_Pin);
 }
 
 
@@ -111,28 +116,31 @@ void Task1(void)
 	while(1)
 	{
 		Taskcount1++;
-		P0_DELL_SMALLGREEN_OFF();
-		P1_DELL_YELLOW_ON();
-		P2_DELL_HDD_OFF();
-		//osThreadYield();
+//		P0_DELL_SMALLGREEN_OFF();
+//		P1_DELL_YELLOW_ON();
+//		P2_DELL_HDD_OFF();
+//		//osThreadYield();
 	}
-	
+}
+void Periodic_Task1(void)
+{
+		HAL_GPIO_TogglePin(P1_DELL_YELLOW_GPIO_Port,P1_DELL_YELLOW_Pin);
 }
 
 
 void Task2(void)
 {
-	
-	
 	while(1)
 	{
 		Taskcount2++;
-		P0_DELL_SMALLGREEN_OFF();
-		P1_DELL_YELLOW_OFF();
-		P2_DELL_HDD_ON();
-		//osThreadYield();
+//		P0_DELL_SMALLGREEN_OFF();
+//		P1_DELL_YELLOW_OFF();
+//		P2_DELL_HDD_ON();
 	}
-	
+}
+void Periodic_Task2(void)
+{
+		HAL_GPIO_TogglePin(P2_DELL_HDD_GPIO_Port,P2_DELL_HDD_Pin);
 }
 
 ///* Timer interrupt equivalent to Task3 */

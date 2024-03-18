@@ -36,7 +36,7 @@ void osKernelLaunch(uint32_t quanta)
 	SysTick_Config(quanta * (SystemCoreClock / 1000U));		//1ms * QUANTA
 	NVIC_SetPriority (SysTick_IRQn, 7U); /* set Priority for Systick Interrupt */
 	
-	osSchedulerLaunch();
+	//osSchedulerLaunch();
 }
 
  uint8_t osKernelAddThreads(void(*task0)(void),void(*task1)(void),void(*task2)(void))
@@ -100,6 +100,9 @@ uint32_t periodic_tick;
 
 void Periodic_Task3(void);
 void Periodic_Task4(void);
+void Periodic_Task0(void);
+void Periodic_Task1(void);
+void Periodic_Task2(void);
 //void osSchedulerRoundRobinSinglePeriodicTask(void)
 //{
 //	//Below algorithm is OK IF AND ONLY IF 1 periodic task is present.
@@ -120,22 +123,27 @@ For study purpose, we shall not write algorithm to calculate HyperPeriod.
 */
 void osScheduerRoundRobin()
 {
-	//OUR QUANTA SIZE IS 100, means the variable periodic_tick will be incremented only after 100 msec.
-	//So at every 100msec, variable periodic_tick will be incremented
 	++periodic_tick;
-	periodic_tick %=10;	//mod operation
-	if(periodic_tick%5==0)
+	periodic_tick %=3000;	//mod operation
+	if(periodic_tick%250==0)
 	{
-		(*Periodic_Task4)();
+		(*Periodic_Task0)();
 	}
-	if(periodic_tick%10==0)
+	if(periodic_tick%500==0)
+	{
+		(*Periodic_Task1)();
+	}
+	if(periodic_tick%500==0)
+	{
+		(*Periodic_Task2)();
+	}
+	if(periodic_tick%750==0)
 	{
 		(*Periodic_Task3)();
 	}
-	
-	if (periodic_tick>10)
+	if(periodic_tick%1000==0)
 	{
-		periodic_tick=0;
+		(*Periodic_Task4)();
 	}
 	currentPt=currentPt->nextPt;
 }
